@@ -38,8 +38,8 @@ describe('readNight on runs/2026-10-28.jsonl', () => {
     expect(n.counts).toEqual({ ok: 10, retry: 4, fail: 1 });
   });
 
-  it('a job that retried and ended ok has lastError null', () => {
-    expect(row('fixtures/refresh')).toMatchObject({ runs: 4, retries: 3, lastStatus: 'ok', lastError: null });
+  it('a job that retried and ended ok keeps its last error', () => {
+    expect(row('fixtures/refresh')).toMatchObject({ runs: 4, retries: 3, lastStatus: 'ok', lastError: 'upstream 503' });
   });
 
   it('a failed job keeps its error', () => {

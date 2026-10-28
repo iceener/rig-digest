@@ -81,7 +81,7 @@ describe('digest JSON', () => {
     expect(body.rows.map((r) => r.job)).toEqual(['alpha', 'mid', 'zeta']);
     expect(body.counts).toEqual({ ok: 2, retry: 3, fail: 1 });
     expect(body.badLines).toBe(0);
-    expect(body.rows[0]).toMatchObject({ owner: null, retries: 3, lastStatus: 'ok', lastError: null });
+    expect(body.rows[0]).toMatchObject({ owner: null, retries: 3, lastStatus: 'ok', lastError: 'boom' });
   });
 
   it('404 for a night with no file', async () => {

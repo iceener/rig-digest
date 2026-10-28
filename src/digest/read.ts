@@ -82,7 +82,7 @@ export function readNight(runsDir: string, night: string): NightResult {
       row.runs++;
       if (line.status === 'retry') row.retries++;
       row.lastStatus = line.status;
-      row.lastError = line.error;
+      if (line.error !== null) row.lastError = line.error;
       row.lastAt = line.at;
     }
   }

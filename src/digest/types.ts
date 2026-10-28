@@ -19,7 +19,8 @@ export type DigestRow = {
   retries: number;
   // Status of the job's last line.
   lastStatus: RunStatus;
-  // `error` of the job's last line, or null if that line has none (a retry that ended ok -> null).
+  // The job's most recent `error` in the night, kept when a later line has none (a retry that
+  // ended ok still shows why it retried). null when no line for the job had an error.
   lastError: string | null;
   // `at` of the job's first and last line, verbatim from the log (offset kept, never converted).
   firstAt: string;
