@@ -1,8 +1,9 @@
 ---
 plan: morning-digest
-status: ready
+status: done
 owner: rook
 opened: 2026-10-29
+closed: 2026-10-29
 ---
 
 # Morning digest
@@ -77,3 +78,23 @@ page again with `LANE_MARKER` unset (the banner reads "no marker set") and uploa
 link. Move this plan to `docs/plans/done/` with its issue list.
 
 Done when: the preview link no longer shows the lane marker.
+
+## Issues
+
+Label `plan:morning-digest` on GitHub.
+
+| # | Issue | Blocked by | Worker | Closed |
+|---|-------|-----------|--------|--------|
+| 1 | Digest types: src/digest/types.ts | — | pi · opus-5.5 · medium | 2026-10-29 |
+| 2 | Run log reader: readNight | #1 | pi · opus-5.5 · medium | 2026-10-29 |
+| 3 | Digest page: GET /digest/:night | #1 | pi · sonnet-5.5 · low | 2026-10-29 |
+| 4 | Digest JSON: GET /api/digest/:night | #1 | pi · sonnet-5.5 · low | 2026-10-29 |
+| 5 | Board link: each night to its digest, with counts | #1 | pi · sonnet-5.5 · low | 2026-10-29 |
+| 6 | Route tests: digest page and JSON | #1 | pi · sonnet-5.5 · low | 2026-10-29 |
+| 7 | Preview for review: /digest/2026-10-28 on a public link | #2–#6 | pi · opus-5.5 · xhigh | 2026-10-29 |
+| 8 | Clean up: preview without the lane marker, plan to done | #7, review | pi · opus-5.5 · xhigh | 2026-10-29 |
+
+#2 got a follow-up from review of the page (0a88d33): a job that retried and then ran ok keeps its
+most recent error, so the digest says why it retried. #7 was closed before the reviewer looked and
+reopened until the review was in. The preview is a public gist; its link now reads "no marker
+set", but the gist's revision history still holds the first version with the marker.
